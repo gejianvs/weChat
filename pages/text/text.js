@@ -1,11 +1,12 @@
-// pages/demo/demo.js
+// pages/test/text.js
+import { formatTime } from '../../utils/util.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    date: formatTime(new Date())
   },
 
   /**

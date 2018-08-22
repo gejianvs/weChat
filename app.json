@@ -1,15 +1,17 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/demo/demo"
+    "pages/product/product",
+    "pages/text/text"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FFF",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-    
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": "50",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#a9b7b7",
@@ -25,16 +27,15 @@
       {
         "selectedIconPath": "./image/product1.png",
         "iconPath": "image/product2.png",
-        "pagePath": "pages/demo/demo",
+        "pagePath": "pages/product/product",
         "text": "产品"
       },
       {
         "selectedIconPath": "image/log1.png",
-        "iconPath":"image/log2.png",
+        "iconPath": "image/log2.png",
         "pagePath": "pages/logs/logs",
         "text": "日志"
       }
     ]
   }
-  
 }

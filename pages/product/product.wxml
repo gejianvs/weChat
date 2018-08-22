@@ -1,0 +1,12 @@
+<view class="container">
+<!-- 循环语句 -->
+  <view wx:for="{{array}}" wx:for-item='item' wx:for-item='index'>
+    {{index}}: {{item.message}}
+  </view>
+  <block>
+  <!-- 条件语句 -->
+    <view wx:if="{{length<5}}">我的长度小于5</view>
+    <view wx:else="{{length>=5}}">我的长度大于5</view>
+  </block>
+  <button bindtap="changeLength" size="mini">改变长度</button>
+</view>

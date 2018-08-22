@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+
 const app = getApp()
 
 Page({
@@ -7,7 +8,10 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    object: {
+      text: 'click'
+    }
   },
   //事件处理函数
   bindViewTap: function() {
@@ -16,7 +20,7 @@ Page({
     })
   },
   click:function(){
-   console.log('111')
+    wx.stopPullDownRefresh()
   },
   onLoad: function () {
     wx.showShareMenu({
@@ -49,6 +53,7 @@ Page({
       })
     }
   },
+
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -56,5 +61,53 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  // 下拉刷新监听
+  onPullDownRefresh:function(){
+    wx.startPullDownRefresh({
+      success:function(){
+        console.log('success')
+      },
+      fail:function(){
+        console.log('fail')
+      },
+      complete:function(){
+        console.log('complete')
+        wx.stopPullDownRefresh()
+        
+      }
+    })
+    
+  },
+  //分享功能
+  onShareAppMessage: function (obj){
+    console.log(obj)
+    return {
+      title:"外汇交易",
+      path:"/index/index",
+      imageUrl:'/image/index1.png'
+    }
+  },
+//
+  onTabItemTap:function(obj){
+    console.log(obj)
+  },
+  //组建事件处理函数 改变数据this.setData()
+  viewTap: function () {
+    this.setData({
+      motto:'hollo china',
+      'object.text': this.data.object.text == 'click' ? 'clickbACK' :'click'
+      },()=>{
+        //保留当前页面，跳转到应用内的某个页面
+        wx.navigateTo({
+          url: "/pages/text/text",
+          success:()=>{
+            console.log('跳转成功')
+          }
+        })
+      console.log('数据更新完成')
+    })
+  },
+  getCurrentPages(){
   }
 })
