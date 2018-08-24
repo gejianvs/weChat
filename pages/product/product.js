@@ -5,9 +5,15 @@ Page({
     }, {
       message: 'bar'
     }],
-    length:5
+    length:5,
+    item: {
+      index: 0,
+      msg: 'this is a template',
+      time: '2016-09-15'
+    }
   },
-  changeLength(){
+  changeLength(obj){
+    console.log(obj)
     this.setData({
       length: this.data.length+1
     },()=>{
@@ -16,8 +22,10 @@ Page({
           length:1
         })
       }
-      console.log(this.data.length)
     })
+  },
+  longpress(){
+    console.log('longpress')
   }
 
 })

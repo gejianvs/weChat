@@ -1,0 +1,9 @@
+
+<text>header</text>
+
+
+<template name="header">
+  <view>
+   我是header模板
+  </view>
+</template> 

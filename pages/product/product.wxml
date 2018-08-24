@@ -1,12 +1,36 @@
+<import src="../../template/header/header.wxml" />
+
 <view class="container">
-<!-- 循环语句 -->
+<!-- WXML  include引用方式 -->
+  <include src="../../template/header/header.wxml" />
+  <!-- 循环语句 -->
   <view wx:for="{{array}}" wx:for-item='item' wx:for-item='index'>
     {{index}}: {{item.message}}
   </view>
   <block>
-  <!-- 条件语句 -->
+    <!-- 条件语句 -->
     <view wx:if="{{length<5}}">我的长度小于5</view>
     <view wx:else="{{length>=5}}">我的长度大于5</view>
   </block>
   <button bindtap="changeLength" size="mini">改变长度</button>
+  <!-- longpress  可以通过bind 和 catch 开头区分时间类型  bind事件绑定不会阻止冒泡事件向上冒泡，catch事件绑定可以阻止冒泡事件向上冒泡。 capture-bind 捕获阶段=>冒泡  capture-catch 中断捕获阶段和取消冒泡阶段   -->
+  <button catchlongpress="longpress" size="mini">longpress</button>
+  <!-- 使用模板 -->
+  <template is="msgItem" data="{{...item}}" />
+  <!-- WXML  import引用方式 -->
+  <template is="header" />
 </view>
+
+
+
+
+
+
+<!-- 定义模板 -->
+
+<template name="msgItem">
+  <view>
+    <text> {{index}}: {{msg}} </text>
+    <text> Time: {{time}} </text>
+  </view>
+</template>
