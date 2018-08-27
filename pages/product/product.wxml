@@ -30,7 +30,7 @@ module.exports.message = msg;
   <!-- 尝试wxs -->
   <view> {{m1.message}} </view>
   <!-- 自定义组件 -->
-  <public-Component inner-text="Some text">
+  <public-Component inner-text="Some text" bindmyevent="onMyEvent">
      <view slot="before">这里是插入到组件slot name="before"中的内容</view>
     <!-- 这部分内容将被放置在组件 <slot name="after"> 的位置上 -->
     <view slot="after">这里是插入到组件slot name="after"中的内容</view>

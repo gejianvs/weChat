@@ -11,16 +11,21 @@ Component({
   },
   data: {
     // 这里是一些组件内部数据
-    a:'自定义组件'
+    a: '自定义组件'
   },
   methods: {
     // 这里是一个自定义方法
-    publicMethod: function () { 
+    publicMethod: function() {
       this.setData({
-        a:'这是插入slot内的数据'
+        a: '这是插入slot内的数据'
       }, () => {
         console.log("改变完成")
       })
+    },
+    onTap: function() {
+      var myEventDetail = {} // detail对象，提供给事件监听函数
+      var myEventOption = {} // 触发事件的选项
+      this.triggerEvent('myevent', myEventDetail, myEventOption)
     }
   }
 })

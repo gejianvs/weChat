@@ -26,6 +26,9 @@ Page({
   },
   longpress(){
     console.log('longpress')
+  },
+  onMyEvent(e){
+    console.log(e)
   }
 
 })
